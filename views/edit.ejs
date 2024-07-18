@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelphiDilemma</title>
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+</head>
+
+<body>
+    <%- include("./nav") %>
+        <!--navbar-->
+
+        <!--Form-->
+        <div class="loginBox">
+            <form method="post" action="/update">
+                <h1>Edit<br>Account</h1>
+                <BR>
+
+                <input type="hidden" value="edit" name="tipofunc">
+                <input type="hidden" value="<%= info.id %>" name="id">
+
+                <div class="loginInput">
+                    <input type="text" placeholder="User" value="<%= info.nome %>" id="nome" name="nome">
+                </div>
+                <BR><BR>
+
+                <div class="loginInput">
+                    <input type="text" placeholder="Email" value="<%= info.email %>" id="email" name="email">
+                </div>
+                <BR><BR>
+
+                <div class="loginInput">
+
+                    <input type="password" placeholder="New password" id="senha" name="senha">
+                </div>
+                <BR><BR>
+
+                <div class="loginInput">
+                    <input type="password" placeholder="Confirm new password" id="senhaC" name="senhaC">
+                </div>
+                <BR><BR>
+                <button name="btn" id="btn" type="submit">Edit</button> <!-- confirma a edição e executa o edit no bd-->
+                <a onclick="confirmaDelete(event, this)">Delete account?</a>
+            </form>
+            <!--Form-->
+        </div>
+</body>
+<script>
+    //erro
+    function confirmaDelete(event, a) {
+
+        var decisao = confirm("confirmar exclusão?");
+        if (decisao){
+            window.location = "/delete/<%= info.id %>";     
+        }
+    }
+</script>
+
+</html>

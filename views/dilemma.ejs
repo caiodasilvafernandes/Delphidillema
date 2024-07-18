@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelphiDilemma</title>
+    <link rel="stylesheet" href="css/dilemma.css">
+</head>
+
+<body>
+    <%- include("./nav") %>
+        <!--navbar-->
+
+        <!--voto contra o delphi-->
+        <div class="noDelphi">
+            <form method="post" action="/cadDilemma">
+
+                <input type="hidden" value="<%= info.id %>" name="id">
+                <input type="hidden" value="<%= info.tipofunc %>" name="tipofunc">
+                <input type="hidden" value="<%= info.nome %>" name="nome">
+                <input type="hidden" value="<%= info.email %>" name="email">
+                <input type="hidden" value="<%= info.senha %>" name="senha">
+
+                <h1>WE HATE DELPHI!! </h1>
+                <BR>
+                <p>do you?</p>
+                <BR>
+                <button type="submit" name="vote" id="vote" value="naodelphi">I HATE DELPHI!</button>
+                <!--vota no nodelphi leva para graphs.html dps de clicar-->
+            </form>
+        </div>
+        <!--voto contra o delphi-->
+
+        <!--voto a favor do delphi-->
+        <div class="yesDelphi">
+            <form method="post" action="/cadDilemma">
+
+                <input type="hidden" value="<%= info.id %>" name="id">
+                <input type="hidden" value="<%= info.tipofunc %>" name="tipofunc">
+                <input type="hidden" value="<%= info.nome %>" name="nome">
+                <input type="hidden" value="<%= info.email %>" name="email">
+                <input type="hidden" value="<%= info.senha %>" name="senha">
+
+                <h1>WE LOVE DELPHI!! </h1>
+                <BR>
+                <p>do you?</p>
+                <BR>
+                <button type="submit" name="vote" id="vote" value="delphi">I LOVE DELPHI!</button>
+                <!-- vota no delphi e leva para graphs.html dps de clicar-->
+            </form>
+        </div>
+        <!--voto a favor do delphi-->
+
+        <div class="or">
+            <h1>OR</h1>
+        </div>
+</body>
+
+</html>

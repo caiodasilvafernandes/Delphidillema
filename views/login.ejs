@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelphiDilemma</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <%- include("./nav") %>
+    <!--navbar-->
+
+    <!--loginForm-->
+    <div class="loginBox">
+        <form method="post" action="/confirmaLogin">
+            <h1>Login</h1>
+            <BR>
+
+            <div class="loginInput">
+                <input type="text" placeholder="User" id="nome" name="nome">
+            </div>
+            <BR><BR>
+            <div class="loginInput">
+                <input type="password" placeholder="Password" id="senha" name="senha">
+            </div>
+            <BR><BR>
+
+            <button name="btn" id="btn" type="submit">login</button>
+            <BR>
+            <a href="/register">Don't have an account?</a>
+        </form>
+        <!--loginForm-->
+    </div>
+</body>
+</html>

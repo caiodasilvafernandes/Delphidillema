@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelphiDilemma</title>
+    <link rel="stylesheet" href="css/graphs.css">
+</head>
+<body>
+
+    <%- include("./nav") %>
+    <!--navbar-->
+
+    <!--noDelphi-->
+    <div class="noDelphi">
+        <h1><%= (100 - info.porce).toFixed(1) %>%</h1> <!--usuarios que já votaram contra o delphi (em porcentagem)-->
+        <p>Delphi Haters</p>
+    </div>
+
+    <img class="udyr" src="img/23228.png">
+    <!--noDelphi-->
+
+    <!--yesDelphi-->
+    <div class="yesDelphi">
+        <h1><%= info.porce.toFixed(1) %>%</h1> <!--usuarios que já votaram no delphi (em porcentagem)-->
+        <p>Delphi Lovers</p>
+    </div>
+
+    <img class="pantheon" src="img/pantheon-league-of-legends_400x400.png">
+    <!--yesDelphi-->
+
+    <div class="usersVote">
+        <h1><%= info.total %></h1><br> <!--quantidade de usuarios que já votaram no banco-->
+        <p>users voted</p>
+   </div>
+
+
+</body>
+</html>

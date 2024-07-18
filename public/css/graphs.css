@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+body {
+    background-color: #F2F2F2;
+   
+}
+
+/* header/navbar */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 100px;
+    background: #AC0D13;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    min-width: 907px;
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 70px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.logoTitle {
+    font-size: 32px;
+    color: #F2F2F2;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0;}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: #F2F2F2;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 40px;
+}
+
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #F2F2F2;
+    transition: 0.5s;
+}
+
+.navbar a:hover::before {
+    width: 100%;
+}
+/* headbar/navbar */
+
+/*  noDelhpi */
+.noDelphi {
+    position: absolute;
+    width: 20%;
+    background-color: transparent;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    color: #1D3159;
+    text-align: center; 
+    box-sizing: border-box; 
+    padding: 20px;
+}
+
+.noDelphi h1 {
+    font-size: 3.5em; 
+}
+
+.noDelphi p {
+    font-size: 1.5em; 
+}
+
+.udyr {
+    position: absolute;
+    width: 20%;
+    top: 70%;
+    left: 20%;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+}
+
+
+/*  noDelhpi */
+
+/*  yesDelhpi */
+.yesDelphi {
+    position: absolute;
+    width: 20%;
+    background-color: transparent;
+    top: 30%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    color: #591521;
+    text-align: center;
+    box-sizing: border-box; 
+    padding: 20px; 
+}
+
+.yesDelphi h1 {
+    font-size: 3.5em; 
+    margin: 0; 
+}
+
+.yesDelphi p {
+    font-size: 1.5em; 
+    margin: 0; 
+}
+
+.pantheon {
+    position: absolute;
+    padding: 10px;
+    width: 20%;
+    top: 70%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+/*  yesDelhpi */
+
+.usersVote{
+    width: 100%;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: black;
+}

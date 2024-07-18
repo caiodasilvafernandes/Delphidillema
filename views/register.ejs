@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DelphiDilemma</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <%- include("./nav") %>
+    <!--navbar-->
+
+    <!--RegisterForm-->
+    <div class="loginBox">
+        <form method="post" action="/cadastro">
+            <h1>Account <br>Creation</h1>
+            <BR>
+            <input type="hidden" value="cad" name="tipofunc">
+
+            <div class="loginInput">
+                <input type="text" placeholder="User" id="nome" name="nome" required>
+            </div>
+            <BR><BR>
+
+            <div class="loginInput">
+                <input type="email" placeholder="email" id="email" name="email" required>
+            </div>
+            <BR><BR>
+
+            <div class="loginInput">
+
+                <input type="password" placeholder="Password" id="senha" name="senha" required>
+            </div>
+            <BR><BR>
+
+            <button name="btn" id="btn" type="submit">Register</button>
+            <BR>
+        </form>
+        <a href="/login">already have an account?</a>
+        <!--RegisterForm-->
+    </div>
+</body>
+
+</html>
