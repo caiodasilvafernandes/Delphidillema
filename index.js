@@ -4,7 +4,11 @@ const port = 3000;
 const conn = require('./database/db');
 const usuario = require("./controleUsuarios/tableUsuario");
 const controleUsuarios = require("./controleUsuarios/controleUsuarios");
+const controlaToken = require("./controlaToken/controlaToken");
+const manipulaToken = new controlaToken();
+const cookieParser = require("cookie-parser");
 
+app.use(cookieParser());
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
@@ -25,7 +29,7 @@ app.get("/aboutUs", (req, res) => {
 //________________________________________________________________________
 
 // ________________________Telas das informações_________________________
-app.get("/graphs", (req, res) => {
+app.get("/graphs",manipulaToken.verificaToken, (req, res) => {
 
     usuario.findAll().then((result)=>{
         var votosDelphi = 0;

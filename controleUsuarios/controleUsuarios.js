@@ -4,9 +4,12 @@ const usuario = require("./tableUsuario");
 const bodyParser = require('body-parser');
 const slug = require("slug");
 const bCrypt = require("bcrypt");
-const token = require("jsonwebtoken");
 const { where } = require('sequelize');
+const controlaToken = require("../controlaToken/controlaToken");
+const manipulaToken = new controlaToken();
+const cookieParser = require("cookie-parser");
 
+router.use(cookieParser());
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(express.json());
 
@@ -27,10 +30,11 @@ router.post("/confirmaLogin", (req, res) => {
         let comparaPassword = bCrypt.compareSync(senha, user.senha);
         
         if (comparaPassword) {
+            const token = manipulaToken.criaToken(user.id,req,res);
             res.redirect("/graphs");
-        } else {
-            res.redirect("/login");
+            return;
         }
+        res.redirect("/login");
     });
 });
 //________________________________________________________________________
@@ -58,7 +62,8 @@ router.post("/cadDilemma", (req, res) => {
             email: email,
             senha: senhahash,
             voto: vote
-        }).then(() => {
+        }).then((user) => {
+            manipulaToken.criaToken(user.id,req,res)
             res.redirect("/graphs");
         });
 
@@ -87,17 +92,23 @@ router.post("/update", (req, res) => {
 })
 //________________________________________________________________________
 
-// __________________________Telas de delete______________________________
+// __________________________Tela de delete______________________________
 router.get("/delete/:id", (req, res) => {
     let id = req.params.id;
 
     usuario.destroy({
         where:{ id:id }
     }).then(()=>{
-        res.redirect("/")
+        res.redirect("/");
     })
 });
 
 //________________________________________________________________________
 
-module.exports = router
+// __________________________Tela sem login______________________________
+router.get("/noLogin", (req, res) => {
+    res.render("noLogin");
+});
+//________________________________________________________________________
+
+module.exports = router;
