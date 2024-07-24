@@ -111,4 +111,13 @@ router.get("/noLogin", (req, res) => {
 });
 //________________________________________________________________________
 
+// ___________________________Telas de perfil_____________________________
+router.get("/profile",manipulaToken.verificaToken, (req, res) => {
+    let idUser = req.userId;
+    usuario.findByPk(5, -"password").then((user)=>{
+        res.render("profile",{ user:user });
+    });
+});
+//________________________________________________________________________
+
 module.exports = router;

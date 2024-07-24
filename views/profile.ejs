@@ -14,11 +14,11 @@
     <div class="profileBox">
         <form>
             <img src="img/044960ceb389aa1c32ca024ee774e12a.jpg">
-            <h1>username</h1>
+            <h1><%= user.name %></h1>
             <BR>
-            <p>emailbacana@gmail.com</p>
+            <p><%= user.email %></p>
             <BR>
-            <a href="/edit/:id">edit profile</a> 
+            <a href="/edit/:<%= user.id %>">edit profile</a> 
             <a href="/">log off</a>  <!--desconecta da conta e volta pra home-->
         </form>
 </body>
