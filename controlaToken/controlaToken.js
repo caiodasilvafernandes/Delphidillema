@@ -2,9 +2,9 @@ const jwt = require("jsonwebtoken");
 const secret = "delphiDillema";
 
 class manipulaToken {
-    criaToken(id, req, res) {
+    async criaToken(id, req, res) {
         const token = jwt.sign({ userId: id }, secret, { expiresIn: 120 });
-        res.cookie("jwToken", token, { maxAge: 1440000, httpOnly: false,overwrite: true });
+        await res.cookie("jwToken", token, { maxAge: 1440000, httpOnly: false,overwrite: true });
         return token;
     }
 

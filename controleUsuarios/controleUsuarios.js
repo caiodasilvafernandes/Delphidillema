@@ -62,9 +62,10 @@ router.post("/cadDilemma", (req, res) => {
             email: email,
             senha: senhahash,
             voto: vote
-        }).then((user) => {
-            manipulaToken.criaToken(user.id,req,res)
+        }).then(async (user) => {
+            const token = await manipulaToken.criaToken(user.id,req,res);
             res.redirect("/graphs");
+            return;
         });
 
     } else {
@@ -114,7 +115,7 @@ router.get("/noLogin", (req, res) => {
 // ___________________________Telas de perfil_____________________________
 router.get("/profile",manipulaToken.verificaToken, (req, res) => {
     let idUser = req.userId;
-    usuario.findByPk(5, -"password").then((user)=>{
+    usuario.findByPk(idUser, -"password").then((user)=>{
         res.render("profile",{ user:user });
     });
 });
